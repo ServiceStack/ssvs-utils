@@ -79,6 +79,7 @@ module.exports = function(grunt) {
           grunt.log.error('exec error: ', error);
       } else {
 		grunt.log.ok('msdeploy finished');
+		done();
 	  }
     });
   });
