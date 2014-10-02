@@ -1,0 +1,32 @@
+{
+  "name": "ssvs-utils",
+  "description": "Node utils for ServiceStackVS",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ServiceStack/ssvs-utils",
+  "author": {
+    "name": "servicestack",
+    "email": "team@servicestack.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ServiceStack/ssvs-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ServiceStack/ssvs-utils/issues"
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  }
+}
