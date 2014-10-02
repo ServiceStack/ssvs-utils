@@ -3,10 +3,7 @@
   "description": "Node utils for ServiceStackVS",
   "version": "0.1.0",
   "homepage": "https://github.com/ServiceStack/ssvs-utils",
-  "author": {
-    "name": "servicestack",
-    "email": "team@servicestack.net"
-  },
+  "author": "servicestack <team@servicestack.net>",
   "repository": {
     "type": "git",
     "url": "https://github.com/ServiceStack/ssvs-utils.git"
@@ -28,5 +25,10 @@
   },
   "peerDependencies": {
     "grunt": "~0.4.2"
-  }
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
 }
