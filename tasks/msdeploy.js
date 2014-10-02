@@ -73,11 +73,13 @@ module.exports = function(grunt) {
     var done = this.async();
 
     exec(fullCommand,{ maxBuffer: 2000*1024}, function (error, stdout, stderr) {
-      grunt.log.ok(stdout);
+      grunt.log.write(stdout);
       if (error !== null) {
           grunt.log.error(stderr);
           grunt.log.error('exec error: ', error);
-      }
+      } else {
+		grunt.log.ok('msdeploy finished');
+	  }
     });
   });
 
