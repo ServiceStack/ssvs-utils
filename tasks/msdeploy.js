@@ -7,7 +7,7 @@
 
 'use strict';
 
-var exec = require('child_process').spawn;
+var spawn = require('child_process').spawn;
 var path = require('path');
 var fs = require('fs');
 
