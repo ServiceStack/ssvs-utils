@@ -7,16 +7,16 @@
 
 'use strict';
 
-var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 var path = require('path');
 var fs = require('fs');
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
 
-    grunt.registerMultiTask('msdeploy', '', function () {
+    grunt.registerMultiTask('msdeploy', '', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             msdeployPath: getExePath()
@@ -37,22 +37,22 @@ module.exports = function (grunt) {
 
         delete options["msdeployPath"];
 
-        for (var key in options) {
+        for (var key in options){
             //append level 1 to args
-            var argument = "-" + key + ":";
+            var argument = "-"+key+":";
 
             var obj = options[key];
 
             //Check if level 2 is string
-            if (typeof obj === 'string' || obj instanceof String) {
+            if(typeof obj === 'string' || obj instanceof String){
                 //append string to args
                 argument += obj;
-            } else {
+            }else{
                 //level 2 is key value pair, loop through and attach
                 for (var prop in obj) {
-                    if (obj.hasOwnProperty(prop)) {
+                    if(obj.hasOwnProperty(prop)){
                         //Quote around path as it may contain spaces
-                        var str = prop + "=\"" + obj[prop] + "\",";
+                        var str = prop + "=\"" + obj[prop] +"\",";
                         argument += (str);
                     }
                 }
@@ -69,21 +69,15 @@ module.exports = function (grunt) {
 
         var done = this.async();
 
-        var process = spawn(fullCommand, []);
-        process.stdout.on('data', function (data) {
-            grunt.log.writeln(data);
-        });
-        process.stderr.on('data', function (data) {
-            grunt.log.error(data);
-        });
-        process.on('exit', function (code) {
-            if (code !== 0) {
-                grunt.fail.warn('msdeploy did not complete successfully');
+        exec(fullCommand,{ maxBuffer: 2000*1024}, function (error, stdout, stderr) {
+            grunt.log.write(stdout);
+            if (error !== null) {
+                grunt.log.error(stderr);
+            } else {
+                grunt.log.ok('msdeploy finished');
+                done();
             }
-            grunt.log.ok('msdeploy finished');
-            done();
         });
-
     });
 
     function getExePath() {
