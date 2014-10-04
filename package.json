@@ -1,7 +1,7 @@
 {
   "name": "ssvs-utils",
   "description": "Node utils for ServiceStackVS",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/ServiceStack/ssvs-utils",
   "author": "servicestack <team@servicestack.net>",
   "repository": {

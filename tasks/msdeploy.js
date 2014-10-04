@@ -21,6 +21,7 @@ module.exports = function(grunt) {
         var options = this.options({
             msdeployPath: getExePath()
         });
+        var targetName = this.target;
         grunt.log.writeln();
         grunt.log.writeln();
         grunt.log.writeln(this.target);
@@ -73,7 +74,7 @@ module.exports = function(grunt) {
             if (error !== null) {
                 grunt.log.error(stderr);
             } else {
-                grunt.log.ok('msdeploy finished');
+                grunt.log.ok('msdeploy for "' + targetName + '" finished');
                 done();
             }
         });
