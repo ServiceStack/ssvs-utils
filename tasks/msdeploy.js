@@ -64,7 +64,6 @@ module.exports = function(grunt) {
             fullCommand += ' ' + argument;
         }
 
-        grunt.log.writeln(fullCommand);
         grunt.log.writeln("Working...");
 
         var done = this.async();
