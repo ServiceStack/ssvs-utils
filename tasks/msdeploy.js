@@ -12,7 +12,6 @@ var path = require('path');
 var fs = require('fs');
 
 module.exports = function(grunt) {
-
     // Please see the Grunt documentation for more information regarding task
     // creation: http://gruntjs.com/creating-tasks
 
@@ -52,9 +51,13 @@ module.exports = function(grunt) {
                 //level 2 is key value pair, loop through and attach
                 for (var prop in obj) {
                     if(obj.hasOwnProperty(prop)){
-                        //Quote around path as it may contain spaces
-                        var str = prop + "=\"" + obj[prop] +"\",";
-                        argument += (str);
+                        var propVal;
+                        if(typeof obj[prop] === 'function') {
+                            propVal = prop + "=\"" + obj[prop]() +"\",";
+                        } else {
+                            propVal = prop + "=\"" + obj[prop] +"\",";
+                        }
+                        argument += (propVal);
                     }
                 }
                 //Remove last comma
