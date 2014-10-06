@@ -1,4 +1,4 @@
-var msdeploy = require('../src/tasks/msdeploy.js');
+var msdeploy = require('../tasks/msdeploy.js');
 
 module.exports = {
     'Build command level 1 args ' : function(test) {
